@@ -41,6 +41,10 @@ You will need the following things properly installed on your computer.
 
 ## Running / Development
 
+This client requires access to the search API that is included in the [user-search](https://github.com/eddiesholl/user-search) repo. First you will need to get access to that app and get the server up and running on port 8000.
+
+Then when you're ready to run this app:
+
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
