@@ -10,7 +10,17 @@ The task at hand is to allow a user to define a search they would like to run ac
 * field - the field on the chosen entity to search in
 * term - the actual value to search for in the field
 
-The query is actually implemented with a simple ajax GET request. This is much simpler than using an idiomatic query via the ember `store`, which is overkill for the task at hand. More complex interfaces and features might benefit from the ember store and models etc, but this is not helpful right now.   
+The query is actually implemented with a simple ajax GET request. This is much simpler than using an idiomatic query via the ember `store`, which is overkill for the task at hand. More complex interfaces and features might benefit from the ember store and models etc, but this is not helpful right now.
+
+## Enhancements
+
+The solution so far has provided a few basic use cases for defining a search of user data, and displaying the results. Some possible future features and enhancements to the ember app are:
+
+* Multiple search results - right now the client is expecting a single search result. The server is not returning well formed JSON with multiple search matches. If this was fixed, then the client should obviously support a list of matches. This would probably involve using an iterator (`#each` in ember terms) and using multiple instances of the `search-result-display` component.
+
+* Better feedback waiting for results - Right now there is no feedback while a search is running. With a local server, this is fine, but adding things like a spinner during the load phase would help the user know what is happening.
+
+* Let the user choose the field from a dropdown - The set of searchable fields should be a bound set of names (per entity). It would make the searching user's life much easier if this was a dropdown, with a fixed list of fields to choose from.
 
 ## Prerequisites
 
