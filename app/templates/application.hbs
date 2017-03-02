@@ -1,15 +1,37 @@
-Please enter your search term:
+<h1>Zendesk User Search</h1>
 
-{{input type="text" value=entity}}
-{{input type="text" value=field}}
-{{input type="text" value=term}}
+Welcome to the Zendesk user search interface! Please enter your search details.
 
-<button {{action "submitQuery"}} >Submit</button>
+<form class='search-form'>
 
-<pre>
-{{result}}
-</pre>
+  <div class="form-group">
+    <label class='control-label' for='entity'>Entity</label>
+    {{input class='form-control' type="text" name='entity' value=entity}}
+  </div>
 
-{{status}}
+  <div class="form-group">
+    <label class='control-label' for='field'>Field</label>
+    {{input class='form-control' type="text" name='field' value=field}}
+  </div>
+
+  <div class="form-group">
+    <label class='control-label' for='term'>Term</label>
+    {{input class='form-control' type="text" name='term' value=term}}
+  </div>
+
+  <button class='btn btn-default' {{action "submitQuery"}}>Submit</button>
+
+</form>
+
+<div class='status-area'>
+Status: {{status}}
+</div>
+
+<div class='status-area'>
+Search results:
+  <pre>
+    {{result}}
+  </pre>
+</div>
 
 {{outlet}}
