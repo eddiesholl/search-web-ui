@@ -12,14 +12,6 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{search-result-display}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim(), 'No results to display');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#search-result-display}}
-      template block text
-    {{/search-result-display}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });
