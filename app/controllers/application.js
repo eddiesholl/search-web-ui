@@ -5,6 +5,8 @@ export default Ember.Controller.extend({
   field: 'name',
   term: 'Cross',
 
+  entities: ['user', 'ticket', 'org'],
+
   status: 'No query has been submitted yet',
 
   actions: {

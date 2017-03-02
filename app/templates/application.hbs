@@ -6,7 +6,11 @@ Welcome to the Zendesk user search interface! Please enter your search details.
 
   <div class="form-group">
     <label class='control-label' for='entity'>Entity</label>
-    {{input class='form-control' type="text" name='entity' value=entity}}
+    <select class='form-control' onchange={{action (mut entity) value="target.value"}}>
+      {{#each entities as |e|}}
+        <option value={{e}} selected={{eq entity e}}>{{e}}</option>
+      {{/each}}
+    </select>
   </div>
 
   <div class="form-group">
