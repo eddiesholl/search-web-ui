@@ -32,6 +32,17 @@ Status: {{status}}
 </div>
 
 <div class='status-area'>
+  Current query:
+  {{#if currentQuery}}
+    Entity:{{currentQuery.entity}}
+    Field:{{currentQuery.field}}
+    Term:{{currentQuery.term}}
+  {{else}}
+    No current query
+  {{/if}}
+</div>
+
+<div class='status-area'>
 Search results:
   <pre>
     {{result}}

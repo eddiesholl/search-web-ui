@@ -9,6 +9,8 @@ export default Ember.Controller.extend({
 
   status: 'No query has been submitted yet',
 
+  currentQuery: null,
+
   actions: {
     submitQuery: function() {
       const entity = this.get('entity');
@@ -17,6 +19,14 @@ export default Ember.Controller.extend({
 
       const description = `entity:${entity} - field:${field} - term:${term}`;
 
+      const currentQuery = {
+        entity,
+        field,
+        term
+      };
+
+      this.set('currentQuery', currentQuery);
+
       this.set('status', 'Running query for ' + description);
 
       const self = this;
@@ -24,18 +34,14 @@ export default Ember.Controller.extend({
       $.ajax({
         type: 'GET',
         url: 'http://localhost:8000',
-        data: {
-          entity,
-          field,
-          term
-        },
+        data: currentQuery,
 
         success: function(data) {
           self.set('result', JSON.stringify(data, 0, 4));
-          self.set('status', `Displaying query result for ${description}`);
+          self.set('status', 'Query succeeded!');
         },
         error: function(request, textStatus, errorThrown) {
-          self.set('status', errorThrown);
+          self.set('status', 'Query failed :( ' + errorThrown);
         }
       });
     }
