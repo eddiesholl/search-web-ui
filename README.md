@@ -1,7 +1,16 @@
 # Search-web-ui
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is a simple web front end for a user search API, implemented using the ember.js framework.
+
+# Description
+
+The task at hand is to allow a user to define a search they would like to run across user or user-related objects (users, tickets, organisations). The query is made up of 3 parameters:
+
+* entity - one of user, ticket or org
+* field - the field on the chosen entity to search in
+* term - the actual value to search for in the field
+
+The query is actually implemented with a simple ajax GET request. This is much simpler than using an idiomatic query via the ember `store`, which is overkill for the task at hand. More complex interfaces and features might benefit from the ember store and models etc, but this is not helpful right now.   
 
 ## Prerequisites
 
@@ -50,4 +59,3 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
