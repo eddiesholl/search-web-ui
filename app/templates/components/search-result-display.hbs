@@ -1,0 +1,20 @@
+{{#if result}}
+
+  <div>
+    The field <span class='text-highlight'>{{field}}</span>
+    matched the search term <span class='text-highlight'>{{term}}</span>.
+
+    {{#if matchedValue}}
+      Matched value: <span class='text-highlight'>{{matchedValue}}</span>
+    {{/if}}
+  </div>
+
+  <div>
+    Full results:
+    <pre>
+      {{result}}
+    </pre>
+  </div>
+{{else}}
+    No results to display
+{{/if}}
