@@ -1,7 +1,5 @@
 import Ember from 'ember';
 
-var ix = 0;
-
 export default Ember.Controller.extend({
   entity: 'user',
   field: 'name',
@@ -32,10 +30,10 @@ export default Ember.Controller.extend({
 
         success: function(data) {
           self.set('result', JSON.stringify(data, 0, 4));
-          self.set('status', `Displaying query result for ${description}`)
+          self.set('status', `Displaying query result for ${description}`);
         },
         error: function(request, textStatus, errorThrown) {
-          self.set('status', errorThrown)
+          self.set('status', errorThrown);
         }
       });
     }
